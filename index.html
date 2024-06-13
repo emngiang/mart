@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>TechMart</h1>
+        <p>Shop The Latest Tech Today</p>
+    </header>
+
+    <main>
+        <div class="product">
+            <h2>Item 1</h2>
+            <p>Price: $10</p>
+            <button onclick="addToCart(10)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <h2>Item 2</h2>
+            <p>Price: $15</p>
+            <button onclick="addToCart(15)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <h2>Item 3</h2>
+            <p>Price: $20</p>
+            <button onclick="addToCart(20)">Add to Cart</button>
+        </div>
+    </main>
+
+    <footer>
+        <a href="checkout.html">Go to Checkout</a>
+    </footer>
+
+    <script>
+        function addToCart(price) {
+            alert("Item with price $" + price + " added to cart.");
+        }
+    </script>
+</body>
+</html>
