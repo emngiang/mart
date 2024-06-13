@@ -48,3 +48,7 @@ button {
 button:hover {
     background-color: #218838;
 }
+
+input[type="number"] {
+    width: 50px;
+}

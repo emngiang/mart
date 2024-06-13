@@ -3,41 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechMart</title>
+    <title>TechMart - Checkout</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>TechMart</h1>
-        <p>Shop The Latest Tech Today</p>
+        <h1>Checkout</h1>
     </header>
 
     <main>
-        <div class="product">
-            <h2>Item 1</h2>
-            <p>Price: $10</p>
-            <button onclick="addToCart(10)">Add to Cart</button>
+        <h2>Order Summary</h2>
+        <div id="order-summary">
+            <!-- Order summary will be populated by JavaScript -->
         </div>
-        <div class="product">
-            <h2>Item 2</h2>
-            <p>Price: $15</p>
-            <button onclick="addToCart(15)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <h2>Item 3</h2>
-            <p>Price: $20</p>
-            <button onclick="addToCart(20)">Add to Cart</button>
-        </div>
+        <button onclick="placeOrder()">Place Order</button>
     </main>
 
     <footer>
-        <a href="checkout.html">Go to Checkout</a>
+        <a href="index.html">Back to Home</a>
     </footer>
 
     <script>
-        function addToCart(price) {
-            alert("Item with price $" + price + " added to cart.");
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const summary = document.getElementById('order-summary');
+            let total = 0;
+
+            if (cart.length === 0) {
+                summary.innerHTML = '<p>No items in cart.</p>';
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                summary.innerHTML += `
+                    <p>${item.quantity} x ${item.item} - $${item.price} each (Total: $${itemTotal})</p>
+                `;
+            });
+
+            summary.innerHTML += `<h3>Total: $${total}</h3>`;
         }
+
+        function placeOrder() {
+            alert("Order placed! (This is a demo, so no actual order is placed.)");
+            localStorage.clear();
+            window.location.href = 'index.html';
+        }
+
+        // Load cart on page load
+        window.onload = loadCart;
     </script>
 </body>
 </html>
