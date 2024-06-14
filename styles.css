@@ -52,3 +52,22 @@ button:hover {
 input[type="number"] {
     width: 50px;
 }
+
+
+.checkout-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.7em 1.5em;
+    margin-top: 2em;
+    cursor: pointer;
+    display: block;
+    width: 50%;
+    margin: 2em auto;
+    text-align: center;
+}
+
+.checkout-button:hover {
+    background-color: #0056b3;
+}
+
