@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>        
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TWDGQ6RC');</script>
-    <!-- End Google Tag Manager -->
-    
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechMart</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWDGQ6RC"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <header>
         <h1>TechMart</h1>
         <p>Shop The Latest Tech Today</p>
@@ -46,11 +34,8 @@
             <input type="number" id="quantity3" name="quantity3" min="1" value="1">
             <button onclick="addToCart('Item 3', 20, document.getElementById('quantity3').value)">Add to Cart</button>
         </div>
+        <button class="checkout-button" onclick="goToCheckout()">Go to Checkout</button>
     </main>
-
-    <footer>
-        <a href="checkout.html">Go to Checkout</a>
-    </footer>
 
     <script>
         // Load cart from localStorage if available
@@ -60,6 +45,10 @@
             cart.push({ item, price, quantity: parseInt(quantity) });
             localStorage.setItem('cart', JSON.stringify(cart));
             alert(`${quantity} x ${item}(s) added to cart at $${price} each.`);
+        }
+
+        function goToCheckout() {
+            window.location.href = 'checkout.html';
         }
     </script>
 </body>
